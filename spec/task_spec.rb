@@ -19,7 +19,16 @@ describe(Task) do
     it("adds a task to the array of saved tasks") do
       test_task = Task.new("wash the lion")
       test_task.save()
+      # test_task.save()
       expect(Task.all()).to(eq([test_task]))
+    end
+  end
+
+  describe(".clear") do
+    it("empties out all the saved tasks") do
+      Task.new("wash the lion").save()
+      Task.clear()
+      expect(Task.all()).to(eq([]))
     end
   end
 end
